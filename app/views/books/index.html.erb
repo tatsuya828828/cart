@@ -1,8 +1,21 @@
 <h1>Books</h1>
-
+  <table>
+      <tr>
+    	<th>Title</th>
+    	<th>Body</th>
+    	<th　class="method"></th>
+      </tr>
+    <% @books.each do |book| %>
+      <tr>
+      	<th><%= book.title %></th>
+      	<tH><%= book.body %></tH>
+      	<th></th>
+      </tr>
+    <% end %>
+  </table>
 <%= form_for(@book) do |f| %>
 
-   <h3>New book</h3>
+   <h3 class="crearfix">New book</h3>
    <h4>Title</h4>
    <%= f.text_field :title %>
 

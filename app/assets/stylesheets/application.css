@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+ .clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+main {
+	
+}
+.book-intro {
+	float: left;
+	width: 
+
+}
