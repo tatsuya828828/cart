@@ -4,7 +4,7 @@
       <tr>
       	<th><%= book.title %></th>
       	<th><%= book.body %></th>
-        <th></th>
+        <th><%= @quantity %></th>
       </tr>
         <% end %>
         <%= button_to "全て削除", cart_items_path, method: :delete %>

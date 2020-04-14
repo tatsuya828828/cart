@@ -8,6 +8,7 @@ class CartItemsController < ApplicationController
 		@cart_item = CartItem.new
 		@cart_item.title = @book.title
 		@cart_item.body = @book.body
+		@quantity = params[:quantity.to_s]
 		@cart_item.save
 		redirect_to book_cart_items_path
 
