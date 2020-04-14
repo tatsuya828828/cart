@@ -12,6 +12,11 @@
       	<th><%= link_to "Show", book_path(book) %></th>
       	<th><%= link_to "Edit", edit_book_path(book) %></th>
       	<th><%= link_to "Destroy", book_path(book), method: :delete %></th>
+        <th><%= form_tag(book_cart_items_path(book), method: :post) do %>
+            <% book.title %><% book.body %>
+            <input type="submit" value="add">
+            <% end %>
+        </th>
       </tr>
     <% end %>
   </table>
