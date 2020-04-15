@@ -14,7 +14,7 @@
       	<th><%= link_to "Destroy", book_path(book), method: :delete %></th>
         <th><%= form_tag(book_cart_items_path(book), method: :post) do %>
             <% book.title %><% book.body %>
-            <%= select_tag 'quantity',options_for_select([['個数選択'],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]]) %>
+            <%= select_tag 'quantity',options_for_select([['個数選択',''],[1],[2],[3],[4],[5],[6],[7],[8],[9],[10]]) %>
             <input type="submit" value="add">
             <% end %>
         </th>

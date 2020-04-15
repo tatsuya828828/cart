@@ -1,11 +1,25 @@
     <h1>一覧</h1>
     <table>
-      <% @books.each do |book| %>
-      <tr>
-      	<th><%= book.title %></th>
-      	<th><%= book.body %></th>
-        <th><%= @quantity %></th>
-      </tr>
+      <thead>
+        <th>
+          Title
+        </th>
+        <th>Body</th>
+      </thead>
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+          <tr>
+      	    <td><%= cart_item.title %></td>
+      	    <td><%= cart_item.body %></td>
+            <td>
+            </td>
+              <td>
+                <%= form_for cart_item,url:book_cart_item_path(@book.id,cart_item.id) do |f| %>
+                  <%= f.text_area :quantity %>
+                  <%= f.submit '変更' %>
+                <% end %>
+              </td>
+          </tr>
         <% end %>
-        <%= button_to "全て削除", cart_items_path, method: :delete %>
+        <%= button_to "全て削除", cart_items_path, method: :delete %></tbody>
       </table>

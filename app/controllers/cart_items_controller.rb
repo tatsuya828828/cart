@@ -1,6 +1,7 @@
 class CartItemsController < ApplicationController
 	def index
-		@books = CartItem.all
+		@book = Book.find(params[:book_id])
+		@cart_items = CartItem.all
 	end
 
 	def create
@@ -8,11 +9,18 @@ class CartItemsController < ApplicationController
 		@cart_item = CartItem.new
 		@cart_item.title = @book.title
 		@cart_item.body = @book.body
-		@quantity = params[:quantity.to_s]
+		@cart_item.quantity = params[:quantity]
 		@cart_item.save
 		redirect_to book_cart_items_path
 
 	end
+
+	def destroy
+		@cart_item = CartItem.find(params[:id])
+		@cart_item.destroy
+		redirect_to books_path
+	end
+
 
 	def destroy_all
 		CartItem.destroy_all
@@ -20,7 +28,8 @@ class CartItemsController < ApplicationController
 	end
 
 	def update
-		@cart_item.update(quantity: params[:quantity].to_i)
+		@cart_item = CartItem.find(params[:id])
+		@cart_item.update
         redirect_to book_cart_items_path
 	end
 end
